@@ -31,13 +31,10 @@ int main (void)  	//Example C
     else
     {switch_LED_2;}
      while (switch_3_up);}}
-	
 
 
   int main (void)    //Example D  Random display
 { unsigned int PRN = 1;
-
-char timer_on;
   setup_HW_Basic;
   PRN = (PRN_8bit_GEN() % 50);
   Timer_T0_10mS_delay_x_m(PRN);
