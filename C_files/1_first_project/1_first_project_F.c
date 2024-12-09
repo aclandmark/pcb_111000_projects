@@ -1,10 +1,12 @@
 
+
+
 #include "Local_subroutines.c"
 
 unsigned int PRN;
 unsigned char PRN_counter;
 
- int main (void)                //Example 9
+ int main (void)                //Example 13
   {int T1_period = 15;
   char direction;
   char seg_counter;
@@ -23,7 +25,9 @@ unsigned char PRN_counter;
  else T1_period = Adjust_T1_period(T1_period);}}
  
  
- int main (void)               //Example 10
+ 
+ 
+ int main (void)               //Example 14
 { unsigned int PRN;
   unsigned char PRN_counter;
 
