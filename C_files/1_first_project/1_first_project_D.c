@@ -1,5 +1,8 @@
 
-int main (void)     //Example 6
+
+
+
+int main (void)     //Example 9
   { unsigned int PORT_1, PORT_2;
 	unsigned int m = 0, n = 0;
   setup_HW;
@@ -17,7 +20,9 @@ int main (void)     //Example 6
   return 1;}
 
 
-int main (void)        //Example 7
+
+
+int main (void)        //Example 10
   { unsigned int PORT_1 = 1;
   char m = 1;
   char overflow = 0;
