@@ -6,6 +6,8 @@ char watch_dog_reset = 0;
 char str_counter;
 
 #define switch_1_down  ((PIND & 0x04)^0x04)
+#define switch_2_down  ((PINB & 0x40)^0x40)
+#define switch_3_down  ((PIND & 0x80)^0x80)
 
 /*****************************************************************************/
 #define setup_HW \
@@ -100,12 +102,6 @@ if ((eeprom_read_byte((uint8_t*)0x1FE) > 0x0F)\
 
 
 /*****************************************************************************/
-#define diagnostic_mode \
-
-
-
-
-/*****************************************************************************/
 #define waiting_for_I2C_master \
 TWCR = (1 << TWEA) | (1 << TWEN);\
 while (!(TWCR & (1 << TWINT)));\
@@ -121,7 +117,6 @@ TWCR = (1 << TWINT);
 #include "Resources_nano_projects/PC_comms/Basic_Rx_Tx_Basic.c"
 #include "Resources_nano_projects/Chip2chip_comms/I2C_subroutines_1.c"
 #include "Resources_nano_projects/Chip2chip_comms/I2C_slave_Rx_Tx.c"
-//#include "Resources_nano_projects/I2C_Subroutines/I2C_diagnostic.c"
 #include "Resources_nano_projects/Subroutines/Random_and_prime_nos.c"
 
 
