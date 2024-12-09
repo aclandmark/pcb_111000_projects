@@ -1,5 +1,7 @@
 
-int main (void)      //Example 7A
+
+
+int main (void)      //Example 11
   { unsigned int PORT_1 = 1;
   char m = 1;
   char overflow = 0;
@@ -24,7 +26,9 @@ int main (void)      //Example 7A
     while(switch_1_down);  }}
 
 	
-	int main (void)   //Example 8
+	
+	
+	int main (void)   //Example 12
   { unsigned int random_num;
   unsigned char PRN_counter;
   long PORT_1 = 1, PORT_2 = 1;
