@@ -1,4 +1,5 @@
 
+
 int main (void)                          //Example 1
   { unsigned int PORT_1;
 
@@ -13,7 +14,7 @@ int main (void)                          //Example 1
   
 
 
-int main (void)  //Example 1A
+int main (void)  //Example 2
   { unsigned int PORT_1;
 
   setup_HW;
@@ -28,7 +29,7 @@ int main (void)  //Example 1A
 	
 	
 	
-	int main (void) 	//Example 2
+	int main (void) 	//Example 3
   { unsigned int PORT_1;
 
   setup_HW;
