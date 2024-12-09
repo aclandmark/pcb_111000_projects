@@ -7,18 +7,20 @@
 
   int main (void)                          //Example 1
   { setup_HW;
-  User_prompt;
-  String_to_PC_Local("\r\nExploring the operation oof the USART\r\n");
-  Char_to_PC_Local('?');
-  newline_Basic();
-  while (1)
-  { Char_to_PC_Local
-    (waitforkeypress_Local());
-  }
-  return 1;
-  }
+  char keypress;
+ 
+  if (watch_dog_reset == 1) String_to_PC_Local("\r\n?  ");
+  else {User_prompt;String_to_PC_Local("\r\nProgram to echo keypresses:\r\n\
+Enter number; -cr- when done\r\n    ");}
   
-
+  while (1)
+  { keypress = waitforkeypress_Local();
+    if  ((keypress =='\r') ||  (keypress =='\n'))break; 
+    else Char_to_PC_Local(keypress); }
+ SW_reset; }
+  
+//Do caps to lowercase and reverse
+//Use cntrl z
 
 /************************************************************************************************************
 
