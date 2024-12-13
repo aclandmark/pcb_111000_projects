@@ -7,50 +7,51 @@
 #include "Receiver_Transmitter_header.h"
 #include "Local_subroutines.c"
 
-int main (void)                          //Example 6
-  { setup_HW;
-  char *mem_add;
- wdt_enable(WDTO_120MS);
-  while(switch_1_down)wdr();
-  
-  String_to_PC_Local("\r\nDefining and using text strings\r\n");
-  const char *message_1 = "Hello world\r\n";
-  const char *message_2 = "Sending text to a PC\r\n";
-  const char message_3[] = "Writing C programs and\r\n";
-  const char message_4[] = "Uploading them to a device\r\n";
-  String_to_PC_Local(message_1);
-  String_to_PC_Local(message_2);
-  String_to_PC_Local(message_3);
-  String_to_PC_Local(message_4);
-  while(switch_1_up)wdr();
-
- String_to_PC_Local("\r\nPrint out of program memory\r\n");
-
-mem_add = (char*)0x100;
-for(int m = 0; m <=200; m++){
-  if ((*(mem_add + m))== '\0')Hex_and_Int_to_PC_Basic (0x10,100+m );
- else Char_to_PC_Basic(*(mem_add + m));}
-  while(switch_1_down);
-  return 1;}  
-
-/*
-    
-int main (void)                          //Example 10
+int main (void)                          //Example 9
   { 
     char char_counter = 0;
-    char *mem_add;
-    char array[25];
-    
+    char keypress;
+    char line_len;
+    char High_byte=0;
+    char askii_char;
+   
     setup_HW;
-    for (int m = 0; m <25; m++)array[m] = m;
     String_to_PC_Basic("ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
-    Read out of program memory\r\n\r\n");
-mem_add = (char*)0x100;
-for(int m = 0; m <=75; m++)Char_to_PC_Basic(*(mem_add + m));
-while(1);
-  return 1;} 
+Send hex file\r\n");
+          
+  while (!(isCharavailable_Local(65)))  
+    Char_to_PC_Local('?');    
+  newline_Basic();
+  Char_from_PC_Local();
 
-*/
+  while (1)
+  { if (isCharavailable_Local(10))
+        {keypress =  Char_from_PC_Local();
+      if(keypress ==':')char_counter = 0;
+      if (char_counter == 1)line_len = (keypress - '0')*0x10;
+      if (char_counter == 2)line_len += keypress - '0';
+      char_counter += 1;
+     if((char_counter >=10) && (char_counter < ((line_len*2) + 10)))
+            
+      {if (!(char_counter%2))
+      {if ((keypress >= '2') &&  (keypress <= '7'))High_byte = keypress; 
+            else {Char_to_PC_Local(keypress);}}
+      if (char_counter%2)
+      {if (!(High_byte))Char_to_PC_Local(keypress);  
+            else{
+              
+              if (keypress >='A')keypress -= 7;
+              askii_char = ((High_byte-'0') * 0x10)+ keypress - '0';
+            Char_to_PC_Basic(askii_char);High_byte=0;}}
+      
+        }else {Char_to_PC_Local(keypress);}}
+       else break;
+       }
+  String_to_PC_Local("Done\r\n");
+  SW_reset;
+  return 1;}
+
+
 
 
 
