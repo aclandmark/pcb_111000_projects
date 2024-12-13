@@ -23,8 +23,8 @@ Send hex file\r\n");
     Char_to_PC_Local('?');    
   newline_Basic();
   Char_from_PC_Local();
-
   while (1)
+
   { if (isCharavailable_Local(10))
         {keypress =  Char_from_PC_Local();
       if(keypress ==':')char_counter = 0;
