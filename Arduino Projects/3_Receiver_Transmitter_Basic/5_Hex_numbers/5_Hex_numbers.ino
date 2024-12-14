@@ -14,7 +14,7 @@ IT INTRODUCES
 
 
 
-#include "Proj_2C_2_header_file.h"
+#include "Num_types_header_file.h"
 
 char digits [12];
 
