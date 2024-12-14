@@ -28,8 +28,8 @@
  SW_reset; }
  
  
-  int main (void)             //Example 3
-  { char symbol;
+  int main (void)             	//Example 3
+  { char symbol;				//Prints all askii symbols
   setup_HW;
   newline_Basic();
   symbol = '!';
