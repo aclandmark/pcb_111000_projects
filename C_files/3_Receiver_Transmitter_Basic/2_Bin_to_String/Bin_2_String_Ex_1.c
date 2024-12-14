@@ -4,7 +4,7 @@
 
 
 int main (void)                          //Example 1 
-  { int i = 0;							//Convert number to string
+  { int i = 0;              //Convert number to string
   int number = 12345;
   char s[12];
   setup_HW;
@@ -26,4 +26,4 @@ int main (void)                          //Example 1
  //Generate a reset
  while(switch_1_up)wdr();
   while(switch_1_down);
-  return 1;
+  return 1;}
