@@ -1,7 +1,7 @@
 
 
-int main (void)           //Example 4
-  { setup_HW;
+int main (void)           	//Example 4
+  { setup_HW;				//Prints text file
   while (!(isCharavailable_Local(65)))  
     Char_to_PC_Local('?');        
   newline_Basic();
@@ -19,7 +19,7 @@ int main (void)           //Example 4
   
   
   int main (void)        //Example 5
-  { setup_HW;
+  { setup_HW;			//Prints text file
   char keypress;
  
   String_to_PC_Basic("abcdefghijklmnopqrstuvwxyz");
