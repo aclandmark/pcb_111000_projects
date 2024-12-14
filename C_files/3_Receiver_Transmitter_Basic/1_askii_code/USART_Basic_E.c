@@ -1,7 +1,6 @@
 
-int main (void)                          //Example 9
-  { 
-    char char_counter = 0;
+int main (void)                     //Example 9
+  { char char_counter = 0;			//.hex file printout with test in clear
     char keypress;
     char line_len;
     char High_byte=0;
