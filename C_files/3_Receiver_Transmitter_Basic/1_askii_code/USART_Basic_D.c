@@ -1,7 +1,7 @@
 
 
 int main (void)                          //Example 7
-  { char symbol = '!';
+  { char symbol = '!';					//Print out askii table
   setup_HW;
   wdt_enable(WDTO_120MS);
   while(switch_1_down)wdr();
@@ -19,9 +19,9 @@ int main (void)                          //Example 7
   
   
   
-  //Lower case to upper case
-int main (void)                          //Example 8
-  { setup_HW;
+  
+int main (void)   			     //Example 8
+  { setup_HW;					//Lower to upper case conversion
   char keypress;
  char text[25];
  int m=0;
