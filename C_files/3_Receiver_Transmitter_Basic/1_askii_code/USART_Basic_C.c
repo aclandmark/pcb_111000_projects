@@ -1,7 +1,7 @@
 
 
-int main (void)               //Example 6
-  { setup_HW;
+int main (void)               	//Example 6
+  { setup_HW;					//Exploring program memory
   char *mem_add;
  wdt_enable(WDTO_120MS);
   while(switch_1_down)wdr();
