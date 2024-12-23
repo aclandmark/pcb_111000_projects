@@ -1,55 +1,35 @@
+/* Numbers from the keyboard try 67108864*/
 
-
-
-
-#include "Moving_display_header.h"
+#include "Receiver_Transmitter_header.h"
 #include "Local_subroutines.c"
 
 
-
-
-int main (void){
-char counter=0;         
-char digit_array[17];                     //Large array used to hold digits as they are rotated
-                                //(ie the addresses defined by "zero", "one", "two" etc....) 
+int main (void){   
+  char num_string[16];
+  char display_string[8];
+  char num_length;
+  int p;
+  
 setup_HW;
+if(watch_dog_reset == 1)String_to_PC_Basic("\r\nAgain"); else
+String_to_PC_Basic("Enter number at keyboard\r\n");
+num_length = Int_KBD_to_display_A_Local(num_string);
 
-for(int m = 0; m < 17; m++)digit_array[m] = 0;          //Clear the array
-String_to_PC_Basic("Send digits? -x- when complete, AK to rotate"); //User instructions
-if (digit_array_to_display(digit_array,  1 ))         //mode is 1: acquire keypresses: returns 1 for 8 digits or 0 for <8 digits
-waitforkeypress_Basic();                        //Only wait if 8 digits were entered
+String_to_PC_Basic(num_string);
+I2C_Tx_any_segment_clear_all();
+for(int m = 0; m <=7; m++)display_string[m] = 0;
 
+p = 0;
+while(1){
+display_string[0] = num_string[num_length - p%(num_length+1)]; p += 1;
+I2C_Tx_8_byte_array(display_string);_delay_ms(100);
 
-while(1){                           
-if (counter++ == 8)break;                   //Repeat these steps 8 times to clear the display
-rotate_display_left;                      //Shifts data in "digit_array" one places left
-Timer_T0_10mS_delay_x_m(10);                  //delay
-I2C_Tx_any_segment_clear_all();                 //Clear display and then update it from the array "digit_array": 
-digit_array_to_display(digit_array,  0 );           //Note: mode is zero (i.e. data is taken from array rather than the keyboard
-}waitforkeypress_Basic();                       //pauses when all digits have shifted off the end of the display
+for(int m = 0; m < 7; m++){
+display_string[7-m] = display_string[7-m-1];}
 
-counter=0;
-
-do{
-while(1){                           //As above but repeat steps 16 times making the number scan across the display
-if (counter++ == 16)break;                    //Continue shifting digits but rotate display
-rotate_display_left;                      //so that number re-enters from RH end of display
-digit_array_to_display(digit_array,  0 );           //keep rotating digits until user enters 'x'
-Timer_T0_10mS_delay_x_m(10);
-I2C_Tx_any_segment_clear_all();}counter = 0;}
-while(waitforkeypress_Basic() !='x');
-
-counter = 0;
-while(counter++ <= 8){                      //Shift digits back into display
-digit_array_to_display(digit_array,  0 );
-rotate_display_left;
-Timer_T0_10mS_delay_x_m(10);
-if(counter != 9)I2C_Tx_any_segment_clear_all();}        //Finnish with number visible on display
-
-waitforkeypress_Basic();I2C_Tx_any_segment_clear_all();       //Clear display
-newline_Basic();SW_reset;}
+if(switch_1_down) break;}
+SW_reset;}
 
 
 
-
-/************************************************************************************************/
+/************************************************************************/
