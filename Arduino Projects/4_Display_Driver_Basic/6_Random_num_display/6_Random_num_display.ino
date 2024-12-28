@@ -25,9 +25,9 @@ sixteen_bit_PRN = random_num[0];
 
     for(int n = 0; n <= num_length; n++){
     display_string[0] = num_string[num_length - n];
-    I2C_Tx_8_byte_array(display_string);_delay_ms(100);
-    
-for(int m = 0; m < 7; m++){
+  I2C_Tx_8_byte_array(display_string);_delay_ms(100);
+   
+   for(int m = 0; m < 7; m++){
 display_string[7-m] = display_string[7-m-1];}
  
 Timer_T0_10mS_delay_x_m(2);}
