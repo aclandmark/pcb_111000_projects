@@ -34,10 +34,14 @@ OCR1A = T1_period_in_ms * 125;
 
 
 
-ISR(TIMER1_COMPA_vect)                                              //Example 1
+ISR(TIMER1_COMPA_vect) 
 {
  TCNT1 = 0; 
  
 if(PORT_1 < 0x10000)I2C_Tx_2_integers(PORT_1, PORT_1);
 PORT_1 = PORT_1 << 1;
 if (PORT_1 == 0x10000)PORT_1 = 1;}
+
+
+
+/**************************************************************************************************************/
