@@ -15,49 +15,43 @@ EEPROM usage
 */
 
 #include "Square_roots_header.h"
-#include "FPN_subroutines.c"
+#include "square_root_subroutines.c"
 
-void I2C_FPN_to_display(float);
 
 #define message_1 "\r\nDATA FROM I/O\r\n\
 Press sw1 to populate digits[0]\r\nsw3 to shift display left\r\n\
 sw2 to enter the number\r\nsw1 to pause the program and restart the program.\r\n"
 
-#define message_2 "Enter new number\r\n"
-
-#define message_3 "\r\nWDTout with interrupt occurred\r\n\
-A wdr() statement is probably needed some where.\r\n"
+#define message_2 "\r\nEnter new number\r\n"
 
 
 int main (void){
 long Num_1;
 
 char digits[8];
+char result[8];
 int counter = 0;
 
 setup_HW;
-//One_25ms_WDT_with_interrupt;
 
 switch(reset_status){
-  case POR_reset:             User_prompt_A;    String_to_PC_Basic(message_1);break;
+  case POR_reset:             break; 
   case WDT_reset:             String_to_PC_Basic(message_2);break;
-   case External_reset:       String_to_PC_Basic(message_1);break;
-  //case WDT_with_ISR_reset:    Serial.write(message_3);_delay_ms(25);cli();setup_watchdog_A;while(1);break;
-  }
+   case External_reset:       String_to_PC_Basic(message_1);break;}
 
 sei();
 while((switch_1_down) || (switch_2_down) ||(switch_3_down));        //wait for switch release
 
 Num_1 = number_from_IO();
-
-
 I2C_Tx_long(Num_1);                                           //Sends number to the display
 Timer_T0_10mS_delay_x_m(15);
 
-root_computation(Num_1, digits); 
-    Num_string_to_PC_Basic(digits);           
-while(1);
+root_computation(Num_1, digits);
+    Num_string_to_PC_Basic(digits); 
+    for(int m = 0; m < 8; m++)result[m] = digits[7-m];
+    I2C_Tx_8_byte_array(result);          
 
+while(switch_3_up);
 SW_reset;}
 
 
@@ -106,9 +100,6 @@ Data_Entry_complete=1;}                                           //Return to Li
 
 
 /****************************************************************************************************************/
-//ISR (WDT_vect){eeprom_write_byte((uint8_t*)0x1FA, 0x01); while(1);}
-
-
 
 
 
