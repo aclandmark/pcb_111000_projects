@@ -1,0 +1,63 @@
+
+
+#include "INT_IO_to_display_header.h"
+#include "Local_subroutines.c"
+
+void rotate_display(void);
+
+
+
+int main (void){
+long Num_1;
+
+setup_HW;
+
+sei();
+while(switch_1_down) ;                                             //wait for switch release
+
+set_up_PCI;
+enable_PCI;
+
+Init_display_for_pci_data_entry;                                    //Set digit[0] to zero and display it.
+while(!(Data_Entry_complete));                                     //Line A. wait here for pci interrupts used to enter data
+Data_Entry_complete = 0;
+disable_PCI;
+Num_1 =  I2C_displayToNum();                                         //Acquire binary value of the display and return it.
+
+rotate_display();
+
+while(switch_1_up);
+SW_reset;}
+
+
+
+/********************************************************************************************************************/
+ISR(PCINT2_vect) {                                                //input number: store keypresses in array -digits
+if(switch_1_down)enable_PCI_on_sw3;
+while(switch_1_down){                                             //Use switch 1 to select keypress 0...9
+    switch(digits[0]){                                            //Test digits[0]
+      case '9': if(!(digits[1]))                                  //If its 9 scroll onto "-"
+      digits[0] = '-';                                            //but only if this is the first entry (i.e. digits[1] is 0.
+      else digits[0] = '0';break;                                 //otherwise scroll from zero to 9
+      case '-': digits[0] = '0';break;                             //If digits[0] is "-" scroll onto '0'.
+      default: digits[0]++; break;}                                //Otherwise increment it
+    I2C_Tx_8_byte_array(digits);                                  //Send value to the display
+    Timer_T0_10mS_delay_x_m(25);}                                 //return to Line A when sw1 is released
+
+if(switch_3_down) {disable_PCI_on_sw3;                           //Use switch 3 to shift display left
+    shift_digits_left; digits[0] = '0';                             //shift the display and initialise digit[0] (make it display '0')
+  I2C_Tx_8_byte_array(digits);}}                                  //update the display and return to Line A
+
+
+
+/********************************************************************************************************************/
+ISR(PCINT0_vect){
+if(switch_2_up)return;                                           //Ignore switch release
+I2C_Tx_any_segment_clear_all();
+Timer_T0_10mS_delay_x_m(25);                                      //Flash display
+I2C_Tx_8_byte_array(digits);
+Data_Entry_complete=1;}                                           //Return to Line A
+
+
+
+/************************************************************************************************************************/
