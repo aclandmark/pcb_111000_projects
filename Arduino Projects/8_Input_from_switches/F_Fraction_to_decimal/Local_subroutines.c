@@ -1,5 +1,21 @@
 
+
+/*****************************************************************************/
+/*#include "Resources_nano_projects/Subroutines/HW_timers.c"
+#include "Resources_nano_projects/PC_comms/Basic_Rx_Tx_Basic.c"
+#include "Resources_nano_projects/Chip2chip_comms/I2C_subroutines_1.c"
+#include "Resources_nano_projects/Chip2chip_comms/I2C_slave_Rx_Tx.c"
+#include "Resources_nano_projects/Subroutines/Random_and_prime_nos.c"
+*/
+
+
+
 #include <avr/io.h>
+
+
+#define clear_digits {for(int m = 0; m<=7; m++)digits[m]=0;}
+#define switch_2_up   (PINB & 0x40)
+
 
 long product_AB(long, long);
 long divide_A_by_B(long, long);
@@ -9,8 +25,8 @@ void String_to_PC_Basic(const char *);
 void Char_to_PC_Basic(char);
 void Timer_T0_10mS_delay_x_m(int);
 
-#define clear_digits {for(int m = 0; m<=7; m++)digits[m]=0;}
-#define switch_2_up   (PINB & 0x40)
+
+
 
 
 
