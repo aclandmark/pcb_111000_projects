@@ -1,6 +1,6 @@
 
 
-int main (void)                          //Example 1
+int main (void)       //Example 1
   { unsigned int PORT_1;
 
   setup_HW;
