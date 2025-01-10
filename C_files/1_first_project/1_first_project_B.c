@@ -37,7 +37,7 @@ for (int m = 14; m; m--)
 	
 	
 	
-	int main (void)               //Example 6
+	int main (void)       //Example 6
   { unsigned long PORT_1, PORT_2;
 
   setup_HW;
