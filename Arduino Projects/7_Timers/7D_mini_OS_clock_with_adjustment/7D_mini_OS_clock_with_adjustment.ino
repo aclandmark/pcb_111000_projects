@@ -1,43 +1,40 @@
 
-/*Proj_7D_Crystal_clock_with adjustment
-*********************************************************/
+//Proj_7D_Crystal_clock_with adjustment
 
 
-/*As for Proj_7C the mini-OS provides a crystal controlled clock with moderately good accuracy
-which can be operated independently of a PC.
+//As for Proj_7C the mini-OS provides a crystal controlled clock with moderately good accuracy
+//which can be operated independently of a PC.
 
-IT INTRODUCES
+//IT INTRODUCES
 
-The following mini-OS clock commands
+//The following mini-OS clock commands
 
-  I2C_Tx_Clock_command(hide_clock);
-  I2C_Tx_Clock_command(pause_clock);
-  I2C_Tx_Clock_command(display_clock);
-  I2C_Tx_Clock_command(increment_seconds);
-  I2C_Tx_Clock_command(increment_minutes);
-  I2C_Tx_Clock_command(decrement_seconds);
-  I2C_Tx_Clock_command(decrement_minutes);
-
-
-  USER INSTRUCTIONS
-
-During operation the three switches are continuously polled.
-
-To control the display:
-  Press sw1 to toggle the display ON and OFF
-  Press sw2 to pause or resume the clock
-
-To adjust the clock:
-  Pulse sw2 then press sw1 and sw3 to advance the time
-  or press and hold sw2 (for 500ms)
-  then press sw1 and sw3 to retard the time
-  Always pulse sw2 when the time is correct
-
- Switch location SW1(PD2) - SW2(PD7) – SW3(PB2)
+  //I2C_Tx_Clock_command(hide_clock);
+  //I2C_Tx_Clock_command(pause_clock);
+  //I2C_Tx_Clock_command(display_clock);
+  //I2C_Tx_Clock_command(increment_seconds);
+  //I2C_Tx_Clock_command(increment_minutes);
+  //I2C_Tx_Clock_command(decrement_seconds);
+  //I2C_Tx_Clock_command(decrement_minutes);
 
 
+  //USER INSTRUCTIONS
 
-  *******************************************************************************************************************/
+//During operation the three switches are continuously polled.
+
+//To control the display:
+  //Press sw1 to toggle the display ON and OFF
+ //Press sw2 to pause or resume the clock
+
+//To adjust the clock:
+  //Pulse sw2 then press sw1 and sw3 to advance the time
+  //or press and hold sw2 (for 500ms)
+  //then press sw1 and sw3 to retard the time
+  //Always pulse sw2 when the time is correct
+
+ //Switch location SW1(PD2) - SW2(PD7) – SW3(PB2)
+
+
 #include "Proj_7D_header_file_1.h"
 
 
