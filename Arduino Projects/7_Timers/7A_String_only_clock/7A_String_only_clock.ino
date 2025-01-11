@@ -1,51 +1,37 @@
 
-/*Proj_7A_Demo_Clock_A
+//Proj_7A_Demo_Clock_A
 ****************************************************************************************************************************/
 
 
-/*IT INTRODUCES
+//IT INTRODUCES
+//
+//Simple clock in which the display is kept up to date by manipulating the string sent to the display every 100 mS.
+//
+//A watch crystal is not used to ensure accuracy which is therefore poor.
+//Pencil and paper recommended to understand string manipulation.
 
-Simple clock in which the display is kept up to date by manipulating the string sent to the display every 100 mS.
 
-A watch crystal is not used to ensure accuracy which is therefore poor.
-Pencil and paper recommended to understand string manipulation.
+//USER INSTRUCTIONS
+
+//Respond to the user prompt by pressing "R" and entering the time when requested or by pressing "r" and letting 
+//the clock start at time zero.
+
+//Unfortunately the I2C bus appears to crash after random intervals of anything between say 10 minutes and an hour
+//Proj 7A_1 has therefore been developed which uses the watchdog timer with interrupt to reset both mim-OS and the user project
+//when a crash occurs
 
 
-USER INSTRUCTIONS
-
-Respond to the user prompt by pressing "R" and entering the time when requested or by pressing "r" and letting 
-the clock start at time zero.
-
-Unfortunately the I2C bus appears to crash after random intervals of anything between say 10 minutes and an hour
-Proj 7A_1 has therefore been developed which uses the watchdog timer with interrupt to reset both mim-OS and the user project
-when a crash occurs
-
-*/
 
 
 
 
 #include "Proj_7A_header_file_1.h"
 
-
 char digits[8];
 
 
-int main (void){
-char User_response;
+//Enter main routine here
 
-setup_HW_Arduino_IO_Extra;
-
-Serial.write("Press 'R' to enter time or 'r' to start at time zero  ");
-User_prompt_A;
-
-if(User_response == 'R')set_time();
-else {reset_clock_1;}
-I2C_Tx_8_byte_array(digits);  
-
-Serial.write("AK to start\r\n");
-waitforkeypress_A();
-while(1){Timer_T0_10mS_delay_x_m(20);Inc_display();Inc_display();}}
 
 
 
