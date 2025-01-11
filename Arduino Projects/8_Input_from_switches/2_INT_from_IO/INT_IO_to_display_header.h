@@ -174,7 +174,6 @@ TWDR;
 TWCR = (1 << TWINT);
 
 
-
 /*****************************************************************************/
 #include "Resources_nano_projects/Subroutines/HW_timers.c"
 #include "Resources_nano_projects/PC_comms/Basic_Rx_Tx_Basic.c"
