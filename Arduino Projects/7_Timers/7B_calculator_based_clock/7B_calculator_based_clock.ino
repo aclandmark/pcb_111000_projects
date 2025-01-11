@@ -1,50 +1,27 @@
 
-/*Proj_7B_Demo_Clock_B
-*************************************************************************************************************************/
+//Proj_7B_Demo_Clock_B
 
 
 
-/*INTRODUCES
+//INTRODUCES
 
-Simple clock in which the display is kept up to date by incrementing a counter every second
-The counter is converted to Hours, Minutes, Seconds each of which is then converted to askii 
-characters and sent to the display.
+//Simple clock in which the display is kept up to date by incrementing a counter every second
+//The counter is converted to Hours, Minutes, Seconds each of which is then converted to askii 
+//characters and sent to the display.
 
-As for Project 7A accurracy is not good
+//As for Project 7A accurracy is not good
 
-USER INSTRUCTIONS
+//USER INSTRUCTIONS
 
-Respond to the user prompt by pressing "R" and entering the time when requested or by pressing "r" and letting 
-the clock start at time zero.
+//Respond to the user prompt by pressing "R" and entering the time when requested or by pressing "r" and letting 
+//the clock start at time zero.
 
-
-Like 7A suffers from I2C bus crashes.  Therefore 7B1 has also beew written based on 7A1
-*/
 
 
 
 #include "Proj_7B_header_file_1.h"
 
-
-
-int main (void){
-char User_response;
-
-setup_HW_Arduino_IO_Extra;
-
-Serial.write("Press 'R' to enter time or 'r' to start at time zero  ");
-User_prompt_A;
-
-if(User_response == 'R')set_time();
-else {reset_clock_1; deci_SecsH = '0'; deci_SecsL = '0'; deci_sec_counter = 0; }
-I2C_Tx_8_byte_array(digits);
-
-Serial.write("AK to start\r\n");
-waitforkeypress_A();
-
-while(1){Timer_T0_10mS_delay_x_m(20); deci_sec_counter += 2;
-if(deci_sec_counter == 864000)deci_sec_counter = 0;
-Format_time_for_display();I2C_Tx_8_byte_array(digits);}}
+//Type main routine here
 
 
 
