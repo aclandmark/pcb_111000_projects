@@ -1,20 +1,8 @@
 
-/**************Proj_6G_Acquire_and process_Integer_Data_from_the user switches********************/
-
-/*
- * Prints colum of numbers each 1.5 times the previous until 99999999 or -9999999 is reached
- * then returns by dividing by 1.5
- * 
-*/
-
-/*
-EEPROM usage
-0x1FF, 0x1FE and 0x1FD     OSCCAL
-0x1FC and 0x1FB            PRN generator
-0x1FA                      Reset source
-*/
+//**************Acquire_and process_Integer_Data_from_the user switches********************
 
 #include "INT_IO_to_display_header.h"
+
 
 #define message_1 "\r\nDATA FROM I/O\r\n\
 Press sw1 to populate digits[0]\r\nsw3 to shift display left\r\n\
@@ -22,59 +10,11 @@ sw2 to enter the number\r\nsw1 to pause the program and restart the program.\r\n
 
 #define message_2 "Enter new number\r\n"
 
-#define message_3 "\r\nWDTout with interrupt occurred\r\n\
-A wdr() statement is probably needed some where.\r\n"
 
 
-int main (void){
-long Num_1;
-char digits[8];
-int counter = 0;
+//Type in main routine here
 
-setup_HW;
-//One_25ms_WDT_with_interrupt;
 
-switch(reset_status){
-  case POR_reset:             User_prompt_A;    String_to_PC_Basic(message_1);break;
-  case WDT_reset:             String_to_PC_Basic(message_2);break;
-   case External_reset:       String_to_PC_Basic(message_1);break;
-  //case WDT_with_ISR_reset:    Serial.write(message_3);_delay_ms(25);cli();setup_watchdog_A;while(1);break;
-  }
-
-sei();
-while((switch_1_down) || (switch_2_down) ||(switch_3_down));        //wait for switch release
-
-Num_1 = number_from_IO();
-
-do{
-Int_to_PC_Basic(++counter); Char_to_PC_Basic('\t');
-Int_to_PC_Basic(Num_1); String_to_PC_Basic("\r\n");
-
-I2C_Tx_long(Num_1);                                           //Sends number to the display
-Timer_T0_10mS_delay_x_m(15);
-while(switch_1_down)wdr();
-
-Num_1 = (Num_1 / 2) *3;} 
-while ((Num_1 < 99999999) && (Num_1 > -9999999));                   //Do some arithmetic
-
-String_to_PC_Basic("Press sw1 to continue\r\n");
-
-while(switch_1_up)wdr();
-Num_1 = (Num_1 / 3) *2; 
-
-do{Num_1 = (Num_1 / 3) *2;                                           //Do the arithmetic in reverse
-Int_to_PC_Basic(--counter); Char_to_PC_Basic('\t');
-Int_to_PC_Basic(Num_1); 
-String_to_PC_Basic("\r\n");                                             
-I2C_Tx_long(Num_1);
-Timer_T0_10mS_delay_x_m(15);
-while(switch_1_down)wdr();}while (counter-1);
-
-String_to_PC_Basic("sw1 !\r\n");
-while(switch_1_up)wdr();
-while(switch_1_down)wdr();
-setup_watchdog_A;
-SW_reset;}
 
 
 
@@ -118,11 +58,6 @@ I2C_Tx_any_segment_clear_all();
 Timer_T0_10mS_delay_x_m(25);                                      //Flash display
 I2C_Tx_8_byte_array(digits);
 Data_Entry_complete=1;}                                           //Return to Line A
-
-
-
-/****************************************************************************************************************/
-//ISR (WDT_vect){eeprom_write_byte((uint8_t*)0x1FA, 0x01); while(1);}
 
 
 
