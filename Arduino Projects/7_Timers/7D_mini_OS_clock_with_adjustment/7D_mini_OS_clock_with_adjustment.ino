@@ -123,14 +123,7 @@ case 2: if (switch_3_down){I2C_Tx_Clock_command(decrement_seconds);Timer_T0_10mS
 
 
 /**********************************************************************************************************************/
-void timer_utoa(char n){                //converts an unsigned number to a string of digits
-if (n>=10)
-{charL = n%10;
-charH = (n-charL)/10;
-charL = charL + '0';
-charH = charH + '0';}
-else
-{charH = '0'; charL = n + '0';}}
+//Type in subroutine void timer_utoa(char n)
 
 
 
