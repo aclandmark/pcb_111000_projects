@@ -81,3 +81,18 @@ case 2: if (switch_3_down){I2C_Tx_Clock_command(decrement_seconds);Timer_T0_10mS
     if (switch_1_down){I2C_Tx_Clock_command(decrement_minutes);Timer_T0_10mS_delay_x_m(20);}
     if(switch_2_down){while (switch_2_down);display_mode = 0; }break;}}}  
 
+
+
+void timer_utoa(char n){                //converts an unsigned number to a string of digits
+if (n>=10)
+{charL = n%10;
+charH = (n-charL)/10;
+charL = charL + '0';
+charH = charH + '0';}
+else
+{charH = '0'; charL = n + '0';}}
+
+
+
+
+
