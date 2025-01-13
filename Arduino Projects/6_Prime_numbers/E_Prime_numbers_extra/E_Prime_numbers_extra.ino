@@ -41,7 +41,6 @@ setup_HW;
 wdt_enable(WDTO_120MS);
   while(switch_1_down)wdr();
 
-//User_prompt;
 set_up_PCI;
 if (!(watch_dog_reset))
 {User_instructions;}
@@ -87,7 +86,6 @@ String_to_PC_Basic("Enter number (prime or non-prime?) or 0 to exit\r\n");
 line_counter=0;
 
 while(1){
-
   
 number = Int_from_PC_Basic(digit_array);                                //Enter trial number at the keyboard
 
@@ -100,7 +98,6 @@ factor[n] = Product_search(number);                                     //Search
 number = number/factor[n];n++;} while (number != 1);  
 if (n==1) {String_to_PC_Basic("Prime"); line_control;                   //Only one factor: Print Prime
 I2C_Tx_any_segment_clear_all();
-//_delay_ms(250);
 Timer_T0_10mS_delay_x_m(25);
 I2C_Tx_long(factor[0]);}
 
@@ -114,37 +111,7 @@ start = start_1;}}
 
 
 
-/***************************************************************************************************************************************************/
-ISR(PCINT2_vect){ 
-if((switch_1_up) &&(switch_3_up)) return; 
-
-if(switch_1_down){_delay_ms(10);while(switch_1_down);return;}           //Press sw_1 to pause display
-
-if(switch_3_down)
-{while (switch_3_down){start_1+=2; Int_to_PC_Basic(start_1);        //Hold sw_3 down to increment start point
-Char_to_PC_Basic(' ');Timer_T1_sub(T1_delay_1sec);}                   //for random number generator
-newline_Basic(); 
-return;}
-}
-
-
-
-/***************************************************************************************************************************************************/
-/*ISR (PCINT0_vect){
-if(switch_3_up) return;
-while (switch_3_down){start_1+=2; Int_to_PC_Basic(start_1);        //Hold sw_3 down to increment start point
-Char_to_PC_Basic(' ');Timer_T1_sub(T1_delay_1sec);}                   //for random number generator
-newline_Basic(); 
-return;}
-*/
-
-
-/***************************************************************************************************************************************************/
-void factors_to_display(int * factor, int m){
-  
-  for(int n=0; n<m; n++){I2C_Tx_any_segment_clear_all();Timer_T0_10mS_delay_x_m(10);//_delay_ms(100);
-  I2C_Tx_long(factor [n]);while (switch_2_up)wdr();while (switch_2_down)wdr();}}
-
+//TYpe subroutines ISR(PCINT2_vect) and void factors_to_display(int * factor, int m) here
 
 
 
