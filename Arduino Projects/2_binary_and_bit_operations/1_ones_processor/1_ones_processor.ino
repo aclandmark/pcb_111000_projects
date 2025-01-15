@@ -1,4 +1,11 @@
 
+/*
+ Explore the operation of the OR, AND, Exclusive OR and NOT bitwise operations (|, & ^ and ~)
+*/
+
+
+
+
 #include "1_ones_processor_header.h"
 #include "1_ones_processor_header_2.h"
 
