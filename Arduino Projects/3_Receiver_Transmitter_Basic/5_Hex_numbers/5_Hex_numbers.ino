@@ -1,17 +1,5 @@
 
-/*Proj_2C_2_Hex_numbers
-***********************************************************/
-
-/*QUICK INTRODUCTION TO HEX NUMBERS
-
-
-IT INTRODUCES
-
-
-1.  Hex number format.
-
-2.  Project subroutine  "Binary_to_PC_local()".*/
-
+//Introducing hex numbers
 
 
 #include "Num_types_header_file.h"
