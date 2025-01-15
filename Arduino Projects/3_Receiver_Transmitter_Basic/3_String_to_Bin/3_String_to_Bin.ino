@@ -1,4 +1,11 @@
-/* Numbers from the keyboard*/
+
+
+//3 projects that explore the conversion of strings to numbers so that
+//they can be entered at the keyboard
+
+
+
+
 
 #include "Receiver_Transmitter_header.h"
 
