@@ -1,5 +1,10 @@
 
 
+
+//Calculates factors of an integer number
+
+
+
 /************************************************************************************************************/
 #include "Integer_numbers_header.h"
 
