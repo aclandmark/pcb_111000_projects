@@ -1,7 +1,13 @@
 
+//10 projects that explore
+          //Text strings
+          //Askii characters
+          //Downloading and printing text files
+          //Storing strings in working memory
+          //Upper to lower case conversion
+          //Printing .hex files with text in clear
 
-//Use cntrl z
-//put numbers in order
+
 
 
 #include "Receiver_Transmitter_header.h"
