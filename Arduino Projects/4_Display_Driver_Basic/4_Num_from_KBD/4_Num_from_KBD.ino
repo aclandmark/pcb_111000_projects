@@ -1,4 +1,6 @@
-/* Numbers from the keyboard try 67108864*/
+
+
+//Entering numbers from the keyboard and letting the mini-OS convert them to binary 
 
 #include "Receiver_Transmitter_header.h"
 
