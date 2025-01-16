@@ -1,4 +1,5 @@
-/* Numbers from the keyboard try 67108864*/
+
+//Practice in using logic to generate a rotating display
 
 #include "Receiver_Transmitter_header.h"
 #include "Local_subroutines.c"
