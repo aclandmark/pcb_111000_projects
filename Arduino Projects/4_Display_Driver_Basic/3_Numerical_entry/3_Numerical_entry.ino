@@ -1,4 +1,7 @@
 
+//Defining digits in terms of their segments
+//so that numbers can simply be entered at the keyboard
+
 
 #include "Segment_driver_header.h"
 #include "Local_subroutines.c"
