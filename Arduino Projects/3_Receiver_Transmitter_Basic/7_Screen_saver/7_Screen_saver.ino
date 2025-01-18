@@ -6,7 +6,7 @@
 volatile char sym_counter;
 volatile int p=0;
 
-#include "UART_interrupts_header.h"
+#include "Screen_saver_header.h"
 
 #define double_space        String_to_PC_Basic("  ");
 #define double_space_back   String_to_PC_Basic("\b\b");
