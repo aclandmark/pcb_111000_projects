@@ -6,7 +6,7 @@ int main (void)               	//Example 6
  wdt_enable(WDTO_120MS);
   while(switch_1_down)wdr();
   
-  String_to_PC_Local("\r\nDefining and using text strings\r\n");
+  String_to_PC_Local("\0\r\nDefining and using text strings\r\n");
   const char *message_1 = "Hello world\r\n";
   const char *message_2 = "Sending text to a PC\r\n";
   const char message_3[] = "Writing C programs and\r\n";
@@ -21,7 +21,7 @@ int main (void)               	//Example 6
 
 mem_add = (char*)0x100;
 for(int m = 0; m <=200; m++){
-  if ((*(mem_add + m))== '\0')Hex_and_Int_to_PC_Basic (0x10,100+m );
+  if ((*(mem_add + m))== '\0')Hex_and_Int_to_PC_Basic (0x10,0x100+m );
  else Char_to_PC_Basic(*(mem_add + m));}
   while(switch_1_down);
   return 1;}
