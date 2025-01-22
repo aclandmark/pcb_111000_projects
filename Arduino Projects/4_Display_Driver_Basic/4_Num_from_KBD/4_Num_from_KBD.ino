@@ -25,8 +25,7 @@ return 1;}
 
 /************************************************************************/
 //Type subroutine 
-
-long Int_KBD_to_display_A_Local(char *) here
+//long Int_KBD_to_display_A_Local(char *) here
 
 
 
