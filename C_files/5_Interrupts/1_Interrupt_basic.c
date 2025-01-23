@@ -83,7 +83,7 @@ ISR(TIMER1_COMPA_vect)                                            //Example 4
   if (n == n_max)
   {  n = 0;
     m += 1;
-    m = p % 8;
+    m = m % 8;
     initialise_display();}}}
 	
 	
