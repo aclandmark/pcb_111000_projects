@@ -1,6 +1,6 @@
 
 
-      //Four examples using a timer interrupt to drive the display
+      //Six examples using a timer interrupt to drive the display
 
 
 #include "Interrupt_basic_header.h"
@@ -63,26 +63,7 @@ void initialise_display()
 
 
 //Type Timer1 ISR here
-ISR(TIMER1_COMPA_vect)                        //Example_6
-{
-  { OCR1A = 150 * 125;
-    TCNT1 = 0;
 
- if (n < 5)
-      { PORT_1 |= PORT_1 << 1;
-        PORT_2 |= PORT_2 >> 1; }
-      else
-      { PORT_1 = PORT_1 << 1;
-        PORT_2 = PORT_2 >> 1; }
-
-  I2C_Tx_2_integers(PORT_1, PORT_2);
-  
-  n += 1;
-  if (n == n_max)
-  {  n = 0;
-    m += 1;
-    m = m % 8;
-    initialise_display();}}}
   
 
 
