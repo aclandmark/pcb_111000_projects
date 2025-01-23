@@ -26,6 +26,9 @@ while(1);
     }
 
 
+
+
+//*****************************************************************************************************
 void T1_clock_tick(unsigned int T1_period_in_ms)                                 //Start the T1 clock
 { TCNT1 = 0;
 OCR1A = T1_period_in_ms * 125;
@@ -33,11 +36,37 @@ OCR1A = T1_period_in_ms * 125;
   TCCR1B = 0x03;}
 
 
+
+//*****************************************************************************************************
 ISR(PCINT2_vect) {                                                      //Use with examples 2 & 3 only
   if ((switch_2_down)|| (clock_rate <= 10))clock_rate = 150;
   else
   {if (switch_1_down)clock_rate += 20;
   if (switch_3_down)clock_rate -= clock_rate/7;}}
+
+
+
+//*****************************************************************************************************
+void initialise_display_A()
+{ n = 1;
+  PORT_1 = 1;
+  PORT_2 = 0x8000;
+  n_max = 17;
+
+  I2C_Tx_2_integers(PORT_1, PORT_2);}
+
+
+
+//*****************************************************************************************************
+void initialise_display_B()
+{ n = 1;
+  PORT_1 = 1;
+  PORT_2 = 0x8000;
+   n_max = 16;
+  
+ I2C_Tx_2_integers(PORT_1, PORT_2);}
+
+
 
 
 
