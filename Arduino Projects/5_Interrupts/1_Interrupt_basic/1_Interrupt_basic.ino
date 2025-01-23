@@ -6,7 +6,7 @@
 #include "Interrupt_basic_header.h"
 
 volatile long PORT_1 = 1, PORT_2 = 0x8000;                            //For example 1, 2 and 3
-volatile int m = 0, n = 0;                                            //Extras for example 3
+volatile int m = 0, n = 0, n_max;                                            //Extras for example 3
 volatile unsigned int clock_rate = 150;                                //Extra for examples 2 and 3
 volatile unsigned int PRN;                                            //For example 4
 unsigned char PRN_counter = 0;                                        //For example 4
@@ -21,6 +21,7 @@ set_up_PCI_on_sw1_and_sw3;                                             //Eamples
 enable_pci_on_sw1_and_sw3;                                              //Eamples 2 and 3 only
     sei();
    T1_clock_tick(clock_rate);
+   initialise_display();
 while(1);
    SW_reset;
     }
@@ -46,19 +47,10 @@ ISR(PCINT2_vect) {                                                      //Use wi
 
 
 
-//*****************************************************************************************************
-void initialise_display_A()
-{ n = 1;
-  PORT_1 = 1;
-  PORT_2 = 0x8000;
-  n_max = 17;
-
-  I2C_Tx_2_integers(PORT_1, PORT_2);}
-
 
 
 //*****************************************************************************************************
-void initialise_display_B()
+void initialise_display()
 { n = 1;
   PORT_1 = 1;
   PORT_2 = 0x8000;
@@ -67,11 +59,31 @@ void initialise_display_B()
  I2C_Tx_2_integers(PORT_1, PORT_2);}
 
 
-
+//*****************************************************************************************************
 
 
 //Type Timer1 ISR here
+ISR(TIMER1_COMPA_vect)                        //Example_6
+{
+  { OCR1A = 150 * 125;
+    TCNT1 = 0;
 
+ if (n < 5)
+      { PORT_1 |= PORT_1 << 1;
+        PORT_2 |= PORT_2 >> 1; }
+      else
+      { PORT_1 = PORT_1 << 1;
+        PORT_2 = PORT_2 >> 1; }
+
+  I2C_Tx_2_integers(PORT_1, PORT_2);
+  
+  n += 1;
+  if (n == n_max)
+  {  n = 0;
+    m += 1;
+    m = m % 8;
+    initialise_display();}}}
+  
 
 
 
