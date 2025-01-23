@@ -38,3 +38,27 @@ ISR(TIMER1_COMPA_vect)                                            //Example 4
     counter = PRN_counter;
     Int_to_PC_Basic(counter);
    while(switch_2_down); }
+   
+  
+
+
+ ISR(TIMER1_COMPA_vect)												//Example_5
+{
+  { OCR1A = 150 * 125;
+    TCNT1 = 0;
+
+ if (n < 8)
+  { PORT_1 |= (1 << (2 * n));
+    PORT_2 |= (0x8000 >> (2 * n)); }
+  else
+  { PORT_1 = PORT_1 << 2;
+    PORT_2 = PORT_2 >> 2; }
+
+  I2C_Tx_2_integers(PORT_1, PORT_2);
+
+  n += 1;
+  if (n == n_max)
+  { n = 0;
+    m += 1;
+    m = m % 8;
+    initialise_display();}}}
