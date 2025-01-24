@@ -21,7 +21,7 @@ set_up_PCI_on_sw1_and_sw3;                                             //Eamples
 enable_pci_on_sw1_and_sw3;                                              //Eamples 2 and 3 only
     sei();
    T1_clock_tick(clock_rate);
-   initialise_display();
+   //initialise_display();                                              //Examples 5 and 6 ONLY
 while(1);
    SW_reset;
     }
@@ -63,6 +63,9 @@ void initialise_display()
 
 
 //Type Timer1 ISR here
+
+
+
 
   
 
