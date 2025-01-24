@@ -19,4 +19,4 @@ Char_to_PC_Basic(Char_from_PC_Basic());
 while ((keypress = waitforkeypress_Basic()) != ctlz)Char_to_PC_Basic(keypress);
  String_to_PC_Basic("\r\nDone: AK to repeat\r\n");
 SW_reset;
-    }S
+    }
