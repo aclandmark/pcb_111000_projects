@@ -2,7 +2,7 @@
 //It scrolls accross the display
 //Type in the main routine
 
-#include "INT_IO_to_display_header.h"
+#include "String_IO_to_display_header.h"
 #include "Local_subroutines.c"
 
 void rotate_display(void);
