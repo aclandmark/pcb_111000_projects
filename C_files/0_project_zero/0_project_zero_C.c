@@ -1,5 +1,5 @@
 
-     int main (void)   		//Example J		
+     int main (void)   		//Example 10		
 { int counter, ON_time;		//Variable brightness
 
   setup_HW_Basic;
@@ -27,7 +27,7 @@
 	  
 	  
 	  
-	  int main (void)		//Example K
+	  int main (void)		//Example 11
 {unsigned char next_LED;	//LEDs in rotation
 
 setup_HW_Basic;
