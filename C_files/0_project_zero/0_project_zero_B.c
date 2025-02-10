@@ -1,6 +1,6 @@
 
 
- int main (void)   	//Example G	
+ int main (void)   	//Example 7	
 {char next_LED = 0;	//Select red/green 	
 
 setup_HW_Basic;		//combination of flashing leds
@@ -16,7 +16,7 @@ case 1:switch_LED_2;break;}
  
  
   
-  int main (void)    //Example H	Random display
+  int main (void)    //Example 8	Random display
 { unsigned int PRN = 1;
 char timer_on = 50;
   setup_HW_Basic;
@@ -34,7 +34,7 @@ while(switch_1_down);
 if(timer_on <= 2)break;}SW_reset;}
 
 
-int main (void)  		//Example I  
+int main (void)  		//Example 9  
 { setup_HW_Basic;		//Red LED flashes 
 int on_time = 50;		//with variable speed
  do{
