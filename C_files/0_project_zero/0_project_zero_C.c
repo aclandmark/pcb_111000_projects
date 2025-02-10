@@ -1,50 +1,46 @@
 
-     int main (void)   		//Example 10		
-{ int counter, ON_time;		//Variable brightness
 
-  setup_HW_Basic;
-  counter = 0;
-  ON_time = 160;
-  
-  LED_2_on;
-  while (switch_3_up);
+ int main (void)   	//Example 7	
+{char next_LED = 0;	//Select red/green 	
 
-  while (1) {
-    if (Led_2_is_on) {
-      LED_2_off;
-      for (int m = 0; m <= (320 - ON_time); m++)
-    _delay_us(6); }
-    else {LED_2_on;
-      for (int m = 0; m <= ON_time; m++)
-    _delay_us(6);}
-    counter += 1;
-    if ((counter >= 100)  && (switch_3_down)) {
-      counter = 0;
-      ON_time = ON_time * 2/3; }
-    if (ON_time == 1) {
-      ON_time = 160;
-      while (switch_3_down); }}}
-	  
-	  
-	  
-	  int main (void)		//Example 11
-{unsigned char next_LED;	//LEDs in rotation
+setup_HW_Basic;		//combination of flashing leds
 
-setup_HW_Basic;
-_delay_ms(100);
-next_LED = eeprom_read_byte((uint8_t*)(0x1FA))%3;
+while(1){
+if(switch_1_down)next_LED = (next_LED+1)%2;
+while(switch_1_down);
 
 switch(next_LED){
-case 0:LED_1_on;break;
-case 1:LED_2_on;break;
-case 2:LEDs_on; break;}
-
-if (switch_1_down)next_LED = 1;
-if (switch_2_down)next_LED = 2;
-if (switch_3_down)next_LED = 3;
-
-eeprom_write_byte((uint8_t*)(0x1FA), next_LED);
- _delay_ms(40);
-SW_reset;}
+case 0:switch_LED_1;break;
+case 1:switch_LED_2;break;}
+ _delay_ms(100);}}
+ 
+ 
   
-  
+  int main (void)    //Example 8	Random display
+{ unsigned int PRN = 1;
+char timer_on = 50;
+  setup_HW_Basic;
+while(1){
+    LEDs_off;
+PRN = (PRN_8bit_GEN() % 4);
+      switch (PRN) {
+        case 0: LED_1_on; break;
+        case 1: LED_2_on; break;
+        case 2: LEDs_on; break;
+        case 4:  LEDs_off; break; }
+Timer_T0_10mS_delay_x_m(timer_on);
+if (switch_1_down)timer_on = timer_on*2/3;
+while(switch_1_down);
+if(timer_on <= 2)break;}SW_reset;}
+
+
+int main (void)  		//Example 9  
+{ setup_HW_Basic;		//Red LED flashes 
+int on_time = 50;		//with variable speed
+ do{
+    if(switch_1_down)on_time = on_time*2/3;
+    while(switch_1_down);
+  switch_LED_1;
+  Timer_T0_10mS_delay_x_m(on_time);}
+  while(on_time >= 2);
+  SW_reset;}
