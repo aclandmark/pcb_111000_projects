@@ -1,10 +1,10 @@
-int main (void)  	//Example A  Red LED flashes
+int main (void)  	//Example 1  Red LED flashes
 {  setup_HW_Basic;
   LED_1_on;
   SW_reset;}
 
 
-int main (void)    //Example B  Red LED flashes
+int main (void)    //Example 2  Red LED flashes
 {  setup_HW_Basic;
 if(switch_3_down){wdt_enable(WDTO_120MS); _delay_ms(60);}
 else wdt_enable(WDTO_30MS);
@@ -12,14 +12,14 @@ else wdt_enable(WDTO_30MS);
  while(1);}
 
 
-int main (void)  	//Example C  Red LED flashes
+int main (void)  	//Example 3  Red LED flashes
 { setup_HW_Basic;
   while(1){
   switch_LED_1;
   _delay_ms(50);}}
 
 
-int main (void)  	//Example D  Red LED flashes 
+int main (void)  	//Example 4  Red LED flashes 
 {  setup_HW_Basic;	//when switch_1 is pressed
   while (1) {
     while (switch_1_up);
@@ -27,7 +27,7 @@ int main (void)  	//Example D  Red LED flashes
     Timer_T0_10mS_delay_x_m(20);  }}
 
 
-int main (void)  	//Example E	
+int main (void)  	//Example 5	
 {setup_HW_Basic;	//Choose colour of static LED
   
   while (1) {
@@ -39,7 +39,7 @@ int main (void)  	//Example E
      while (switch_3_up);}}
 
 
-  int main (void)    //Example F  Random display
+  int main (void)    //Example 6  Random display
 { unsigned int PRN = 1;
   setup_HW_Basic;
   PRN = (PRN_8bit_GEN() % 50);
