@@ -24,8 +24,6 @@ int main (void)      //Example 11
     if (PORT_1 & 0x8000) overflow = 1;
     else overflow = 0;
     while(switch_1_down);  }}
-
-	
 	
 	
 	int main (void)   //Example 12
