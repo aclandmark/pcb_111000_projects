@@ -18,10 +18,8 @@ for (int m = 14; m; m--)
    if(switch_1_down)T1_period = 
    Adjust_T1_period(T1_period);}}
    
-   
-   
-   
-   int main (void)    //Example 5
+     
+      int main (void)    //Example 5
   { unsigned int PORT_1, PORT_2;
   setup_HW;
   while (1)
@@ -34,9 +32,7 @@ for (int m = 14; m; m--)
       PORT_2 = PORT_2 >> 1;
     }}return 1;  }
 	
-	
-	
-	
+		
 	int main (void)       //Example 6
   { unsigned long PORT_1, PORT_2;
 
