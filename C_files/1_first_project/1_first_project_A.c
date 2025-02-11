@@ -8,8 +8,7 @@ int main (void)       //Example 1
   for (int m = 0; m <= 15; m++)
   {  I2C_Tx_2_integers(PORT_1, PORT_1);
     Timer_T0_10mS_delay_x_m(12);
-   PORT_1 = PORT_1 << 1;
-   }
+   PORT_1 = PORT_1 << 1;}
   SW_reset; }
   
 
@@ -23,8 +22,7 @@ int main (void)  //Example 2
   for (int m = 0; m <= 15; m++)
   {  I2C_Tx_2_integers(PORT_1, PORT_1);
     Timer_T0_10mS_delay_x_m(12);
-   PORT_1 = PORT_1 << 1;
-   }
+   PORT_1 = PORT_1 << 1;}
   while(1); }
 	
 	
@@ -43,6 +41,5 @@ int main (void)  //Example 2
 for (int m = 14; m; m--)
 {  I2C_Tx_2_integers
 (PORT_1 << m, PORT_1 << m);
-    Timer_T0_10mS_delay_x_m(12);
-   }
+    Timer_T0_10mS_delay_x_m(12);}
   while(1); }
