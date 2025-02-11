@@ -1,5 +1,5 @@
-#include "Local_subroutines.c"
 
+#include "Local_subroutines.c"
 int main (void)          //Example 4
   { unsigned int PORT_1;
     int T1_period = 15;
@@ -34,7 +34,6 @@ for (int m = 14; m; m--)
 		
 	int main (void)       //Example 6
   { unsigned long PORT_1, PORT_2;
-
   setup_HW;
   while (1)
   { PORT_1 = 1;
