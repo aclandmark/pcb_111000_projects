@@ -3,7 +3,6 @@
 int main (void)          //Example 4
   { unsigned int PORT_1;
     int T1_period = 15;
-
   setup_HW;
   while(1){
   PORT_1 = 1;
