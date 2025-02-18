@@ -28,7 +28,8 @@ digit = Char_from_PC_Basic();          		//user enters digit (0 to 9) at the PC 
 
 switch(digit){            			//The appropriate address is loaded into location 
 									//"string_pointer"
-case '0': string_ptr = zero; break; //The address of array zero is loaded into location "string_ptr"
+case '0': string_ptr = zero; break; //The address of array zero is loaded into 
+									//location "string_ptr"
 case '1': string_ptr = one; break;
 case '2': string_ptr = two; break;
 case '3': string_ptr = three; break;
@@ -39,7 +40,9 @@ case '7': string_ptr = seven; break;
 case '8': string_ptr = eight; break;
 case '9': string_ptr = nine; break;
 default: continue; break;} 		//Illegal key press: Go immediately to the start of the 
-								//do loop. Send the address of the required string to 
+								//do loop. 
+
+								//Send the address of the required string to 
 								//subroutine "display_num_string();"
 display_num_string(string_ptr, digit_num);digit_num++;} 
 while (digit_num < 8);   		//return to the top of the "do" loop until all digits 
