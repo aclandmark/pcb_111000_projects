@@ -19,7 +19,7 @@ while(1){
    Hex_and_Int_to_PC_Basic(10, Num);
   Char_to_PC_Basic('\t');
  Hex_and_Int_to_PC_Basic(radix, Num);Char_to_PC_Basic('\t');     //Send the number to the pc with a radix of 16.
-  Binary_to_PC_local(Num);              //Send the number to the pc in binary form
+  Binary_to_PC_local(Num);              						//Send the number to the pc in binary form
   String_to_PC_Basic("\r\n");
   
   switch(waitforkeypress_Basic()){
