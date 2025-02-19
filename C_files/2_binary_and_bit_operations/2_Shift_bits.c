@@ -1,17 +1,10 @@
 
-
-
-
-
 /*Combines the shift left/right operations with AND, OR, Exclusive-OR and NOT to set, clear and toggle
 individual bits of registers. Access to all hardware components (i.e. Timer, USART, WDT, IO) is via registers.
 Therefore these functions enable us to control and interrogate these components.
  */
 
-
-
 #include "Shift_bits_header.h"
-
 
 int main (void) {
   char op_code;
@@ -22,16 +15,10 @@ int main (void) {
 int test = 0;
   char PRN_counter = 0;
 
-
  setup_HW;
 for(int m = 0; m <=7; m++)digits[m] = 0;
- 
- 
- sei();
-
-  
-lfsr = (PRN_8bit_GEN ());                  //Generate a new PRN (0) tells subroutine to use the EEPROM
-
+   sei();
+ lfsr = (PRN_8bit_GEN ());     
 
   String_to_PC_Basic
   ("\r\n\r\nSelect mode 1 to 6? Then AK to continue or x to exit (when allowed)\r\n");
@@ -44,17 +31,15 @@ lfsr = (PRN_8bit_GEN ());                  //Generate a new PRN (0) tells subrou
     switch (op_code)
     { case '1':   String_to_PC_Basic("shift number left\r\n"); break;
       case '2':   String_to_PC_Basic("shift number right\r\n"); break;
-
       case '3':   String_to_PC_Basic("set a bit\r\n"); break;
       case '4':   String_to_PC_Basic("clear a bit\r\n"); break;
       case '5':   String_to_PC_Basic("toggle a bit\r\n"); break;
       case '6':   String_to_PC_Basic("test a bit\r\n"); break;
-      default:    newline_Basic(); continue;
-    }
+      default:    newline_Basic(); continue; }
 
     digits[1] = 0;
     digits[2] = 0;
-    //X = 0;
+    
     do
     { if (digits[1] == 0)
       {  digits[0] = lfsr;
@@ -74,15 +59,9 @@ lfsr = (PRN_8bit_GEN ());                  //Generate a new PRN (0) tells subrou
       }
       else
       { if (!(digits[1]))digits[1] = 1; 
-      else digits[1] = (((byte)digits[1] << 1) % 256);
-      }
-
-    //PRN_8bit_GEN (lfsr, &PRN_counter);                          //Increment PRN_counter
+      else digits[1] = (((byte)digits[1] << 1) % 256);}
     
-    } while (keypress != 'x');
-
-  }
-}
+    } while (keypress != 'x');}}
 
 
 
@@ -96,10 +75,8 @@ char logical_op(char X, char Y, char op_code) {
     case '3': result = Y | X; break;
     case '4': result = Y & (~(X)); break;
     case '5': result = Y ^ X; break;
-    case '6': result = Y & X; break;
-  }
-  return result;
-}
+    case '6': result = Y & X; break;}
+  return result;}
 
 
 
