@@ -11,14 +11,10 @@ long Askii_to_binary_Local(char, char *);
 
 
 
+/*****************************************************************************************************************/
 long Int_from_PC_local(char radix, char * array_ptr){
-//long Num;
 Num_string_from_KBD_Local(array_ptr);
-//Num = Askii_to_binary_Local(radix, array_ptr);
-
-  return Askii_to_binary_Local(radix, array_ptr);
-}
-
+  return Askii_to_binary_Local(radix, array_ptr);}
 
 
 
@@ -32,6 +28,7 @@ void Num_string_from_KBD_Local(char * array_ptr)
     array_ptr += 1;
   }
   *array_ptr = '\0';}
+
 
 
 
@@ -49,15 +46,7 @@ case 'F': num = num * radix + (*(array_ptr + m++))  - '0' - 7; break;
 
 
 
-
-
-
-
-
-
-
-
-
+/****************************************************************************************************************/
 char Long_Hex_and_Int_to_PC_Basic_local (char radix, long number)
 { int i = 0;
  char sign = '+';
@@ -76,3 +65,9 @@ if (s[i] < 10)s[i] += '0'; else s[i] += '7';
   for (int m = i; m > 0; m--)Char_to_PC_Basic(s[m - 1]);
   Char_to_PC_Basic(' ');
   return i;}
+
+
+
+
+
+  /***********************************************************************************************************/
