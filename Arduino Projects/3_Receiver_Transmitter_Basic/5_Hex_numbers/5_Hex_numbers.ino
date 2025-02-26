@@ -10,8 +10,8 @@ char digits [12];
 
 int main (void){
 long Num;
-int Inc;
-//unsigned char digit_array[4];
+//int Inc;
+
 
 char strlength;
 
@@ -20,8 +20,8 @@ setup_HW;
   String_to_PC_Basic("Enter hex number then x, X or y, Y or AK\r\n");  
    Num = Int_from_PC_local(0x10, digits);
         
-    String_to_PC_Basic("\t? ");
-   //Inc = Int_from_PC_local(10, digits);
+  //  String_to_PC_Basic("\t? ");
+   
    newline_Basic();
     
 while(1){ 
@@ -40,6 +40,7 @@ for(int m = strlength; m < (30 - strlength); m++)Char_to_PC_Basic(' ');
    case 'z': Num = Num * -1; break;
    default:SW_reset;break;    
   }}}
+
   
 
   
@@ -52,11 +53,12 @@ for (int m = 0; m<16; m++){
 
 
 
+
+/***************************************************************************************************/
 void Long_Binary_to_PC_local(long x){ 
 long x_high, x_low;
 x_high = x >> 16;
 x_low = x & 0xFFFF ;
-
  Binary_to_PC_local(x_high);
  String_to_PC_Basic("  ");
  Binary_to_PC_local(x_low);}
