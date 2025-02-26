@@ -10,7 +10,6 @@ char digits [12];
 
 int main (void){
 long Num;
-//int Inc;
 
 
 char strlength;
@@ -19,9 +18,7 @@ setup_HW;
 
   String_to_PC_Basic("Enter hex number then x, X or y, Y or AK\r\n");  
    Num = Int_from_PC_local(0x10, digits);
-        
-  //  String_to_PC_Basic("\t? ");
-   
+           
    newline_Basic();
     
 while(1){ 
