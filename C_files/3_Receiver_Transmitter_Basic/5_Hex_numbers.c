@@ -1,32 +1,32 @@
 
 
 int main (void){
-int Num;
-int Inc;
-unsigned char digit_array[4], radix = 16;
+long Num;
+
+
+char strlength;
 
 setup_HW;
 
-  String_to_PC_Basic("Enter positive number and increment then x or y or AK\r\n");  
-    Num = Int_from_PC_Basic(digits);
-    Hex_and_Int_to_PC_Basic(10, Num);
-    Inc = Int_from_PC_Basic(digits);
-  
-  Hex_and_Int_to_PC_Basic(10, Inc);
-  newline_Basic();
+  String_to_PC_Basic("Enter hex number then x, X or y, Y or AK\r\n");  
+   Num = Int_from_PC_local(0x10, digits);
+           
+   newline_Basic();
     
 while(1){ 
-   Hex_and_Int_to_PC_Basic(10, Num);
-  Char_to_PC_Basic('\t');
- Hex_and_Int_to_PC_Basic(radix, Num);Char_to_PC_Basic('\t');     //Send the number to the pc with a radix of 16.
-  Binary_to_PC_local(Num);              						//Send the number to the pc in binary form
+  strlength = Long_Hex_and_Int_to_PC_Basic_local(0x10, Num);
+for(int m = strlength; m < (30 - strlength); m++)Char_to_PC_Basic(' ');
+strlength =  Long_Hex_and_Int_to_PC_Basic_local(10, Num);
+for(int m = strlength; m < (30 - strlength); m++)Char_to_PC_Basic(' ');
+  Long_Binary_to_PC_local(Num);    
   String_to_PC_Basic("\r\n");
   
   switch(waitforkeypress_Basic()){
-   case 'x': Num= Num + Inc;break;
-   case 'y': Num= Num - Inc;break;
+   case 'x': Num= Num * 0x10;break;
+   case 'y': Num= Num / 0x10;break;
+    case 'X': Num= Num * 10;break;
+   case 'Y': Num= Num / 10;break;
    case 'z': Num = Num * -1; break;
    default:SW_reset;break;    
-  }}
-  }
+  }}}
   
