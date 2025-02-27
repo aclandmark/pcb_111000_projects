@@ -30,7 +30,7 @@ while(1);
 
 
 //*****************************************************************************************************
-void T1_clock_tick(unsigned int T1_period_in_ms)              //Sets up the T1 clockn (default value of T1_period_in_ms is 150) 
+void T1_clock_tick(unsigned int T1_period_in_ms)              //Sets up the T1 clock (default value of T1_period_in_ms is 150) 
 { TCNT1 = 0;                                                  //TCNT1 increases by 1 for each clock tick 
 OCR1A = T1_period_in_ms * 125;                                //Set register OCR1A to 150 x 125 = 18750
   TIMSK1 |= (1 <<  OCIE1A);                                   //Generates an intrerrupt TCNT1 equals OCR1A (i.e. after 150mS) 
@@ -63,15 +63,7 @@ void initialise_display()
 
 
 //Type Timer1 ISR here
-ISR(TIMER1_COMPA_vect)                                             //Example 3
-  {OCR1A = clock_rate * 125;
- TCNT1 = 0; 
-  I2C_Tx_2_integers(PORT_1 << m, PORT_2 >> m);
-  
-    if (!(n)) m += 1;
-    if (m == 16)n = 1;
-    if (n == 1)m -= 1;
-    if (m == 0)n = 0;}
+
 
 
 
