@@ -1,5 +1,5 @@
 
-//Generating a succession of random numbers that move accress the display
+//Generating a succession of random numbers that move accross the display
 
 
 #include "Random_num_header.h"
