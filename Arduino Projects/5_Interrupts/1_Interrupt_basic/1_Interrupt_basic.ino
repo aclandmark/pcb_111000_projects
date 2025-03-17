@@ -1,7 +1,7 @@
 
 
       //Six examples using a timer interrupt to drive the display
-
+      //Take special care with examples 5 an 6: main routine has one extra line
 
 #include "Interrupt_basic_header.h"
 
