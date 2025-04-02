@@ -1,8 +1,4 @@
 
-//#include "Local_subroutines.c"
-
-
-
 
 int main (void)                          //Example 5 
   { unsigned int random_num; 
