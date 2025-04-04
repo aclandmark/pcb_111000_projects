@@ -49,5 +49,5 @@ while (digit_num < 8);   		//return to the top of the "do" loop until all digits
 								//have been illuminated
 
 while(!(isCharavailable_Basic(1)))wdr(); Char_from_PC_Basic();
-I2C_Tx_any_segment_clear_all();                //clear display and repeat
+I2C_Tx_any_segment_clear_all();                //clear display and repeat
 SW_reset;}
