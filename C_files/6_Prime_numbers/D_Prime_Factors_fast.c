@@ -1,4 +1,3 @@
-
 int main (void){
 long array_num=0;                                        //Zero for first array of 200 numbers, one for second array etc. 
 long array_size = 200, array_pointer=1;
@@ -13,7 +12,6 @@ String_to_PC_Basic("\r\n?");
 else 
 String_to_PC_Basic("\r\nEnter number  ");
 number = Int_from_PC_Basic( num_string);
-
 while(1){
 array_num = prime_no_generator(array_num, array_size,  array_of_nums);
 while(array_pointer < array_size)
