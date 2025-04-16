@@ -1,14 +1,11 @@
 
-
-
 int main (void){
 long array_num=0;                                        //Zero for first array of 200 numbers, one for second array etc.
 int array_size = 200, array_pointer=1;
 long num_array[200], prime_num;  
 char counter=9;
 char num_string[12];
-
-                                                                                                                                    
+ 
  setup_HW;
  
 String_to_PC_Basic("Prime number array\r\n1  ");
@@ -23,9 +20,7 @@ String_to_PC_Basic("\r\n");
 if(prime_num)Int_to_PC_Basic(prime_num); 
 Char_to_PC_Basic(' ');
 counter -= 1;
-
-if(!(counter)){counter = 10;}}
-}
+if(!(counter)){counter = 10;}}}
 
 String_to_PC_Basic("\r\n\r\nZero or next array or AOK  ");
 if(waitforkeypress_Basic()=='0')array_num += 1;
