@@ -1,6 +1,3 @@
-
-
-
 int main (void){
 char display_mode;
 
@@ -11,7 +8,6 @@ User_instructions;
 while(switch_1_down);}
 time_from_IO();
 I2C_Tx_OS_timer(AT_clock_mode, start_time);                                 //Send Start clock command (AT clock mode is 7)
-
 
 //Copy this bit from "7D_mini_OS_clock_with_adjustment.ino"
 /******************************************************************************************************************************/
