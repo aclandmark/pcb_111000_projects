@@ -1,7 +1,4 @@
-
-
 int main (void){
-
 setup_HW_Arduino_IO;
 set_up_PCI;
 enable_PCI;
