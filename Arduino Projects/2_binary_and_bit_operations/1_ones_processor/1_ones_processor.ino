@@ -41,12 +41,6 @@ if(User_response =='r')
 Type bit names\r\n\
 z, o, tw, th, fo, fi, si or se  ('x' when done)");
 
-/*do{
-if(select_bits())
-{cpu_reg_1 |= (1 << bit_num);
-Display_registers;} 
-}while (keypress != 'x'); */
-
 do{
 if(select_bits())
 {cpu_reg_2 = 1;Display_registers; _delay_ms(500);
@@ -94,7 +88,7 @@ case 's': set_bit_text; port_reg = port_reg | cpu_reg_1;break;
 case 'c': change_bit_text; port_reg = port_reg ^ cpu_reg_1;break;
 case 't': cpu_reg_2 = port_reg & cpu_reg_1;test_bit_text; break;}
 
-//
+
 update_display;}}
 
 
