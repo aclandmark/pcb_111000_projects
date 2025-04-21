@@ -7,7 +7,6 @@
 #include "Bitwise_logic_header.h"
 
 
-
 int main (void){
 
 char comp;
@@ -31,7 +30,7 @@ waitforkeypress_Basic();
 \r\n  ~|    for   NOR\
 \r\n  ~^    for   NXOR\
 \r\n  ~&    for   NAND\
-\r\n\r\n");}
+\r\n\r\n");}                                                      //Arduino compiler does not see this bracket
 BWop = waitforkeypress_Basic(); 
 if (BWop == '~') 
 {Char_to_PC_Basic('N');comp = 1; BWop = waitforkeypress_Basic();}else comp = 0;                    //detect complement operator
@@ -56,17 +55,8 @@ while (waitforkeypress_Basic() !='x');                                      //Pr
 
 
 
-
 /*************************************************************************************/
-unsigned char Op(unsigned char A, unsigned char B, char comp, char BWOp)
-{char result=0;
-switch (BWOp){
-case '|': result = A | B; break;
-case '^': result = A ^ B; break;
-case '&': result = A & B; break;}
-if (comp == 1) result = ~result;
-return result;}
-
+//Type sbroutine "Op" here
 
 
 
