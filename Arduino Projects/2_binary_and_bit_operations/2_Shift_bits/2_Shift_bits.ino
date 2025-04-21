@@ -52,7 +52,7 @@ lfsr = (PRN_8bit_GEN ());                  //Generate a new PRN (0) tells subrou
 
     digits[1] = 0;
     digits[2] = 0;
-    //X = 0;
+    
     do
     { if (digits[1] == 0)
       {  digits[0] = lfsr;
@@ -74,9 +74,7 @@ lfsr = (PRN_8bit_GEN ());                  //Generate a new PRN (0) tells subrou
       { if (!(digits[1]))digits[1] = 1; 
       else digits[1] = (((byte)digits[1] << 1) % 256);
       }
-
-    //PRN_8bit_GEN (lfsr, &PRN_counter);                          //Increment PRN_counter
-    
+  
     } while (keypress != 'x');
 
   }
