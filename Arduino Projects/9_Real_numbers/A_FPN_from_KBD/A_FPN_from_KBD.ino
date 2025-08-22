@@ -29,10 +29,12 @@ real numbers with a tens exponent such as 5.875 x 10^5
 
 
 #include "FPN_from_KBD_header.h"
-#include "Local_subroutines.c"
 
 
 void print_fpn_as_binary(float, char);
+
+
+
 
 int main (void){
   char digits[12];
@@ -41,25 +43,26 @@ int twos_expt;
 long int_result;
 char decimal_places;
  float fpn_result;
+ char num_string[12];
 
      
 setup_HW;
-if(watch_dog_reset != 1)String_to_PC_Basic("Enter real number (i.e. with decimal point)\r\n");
+if(watch_dog_reset != 1)Serial.write("Enter real number (i.e. with decimal point)\r\n");
 
-dividend = Real_Num_from_PC_local(digits, &divisor, &decimal_places);     //Step 1
-Char_to_PC_Basic ('\t');Int_to_PC_Basic(dividend);
-String_to_PC_Basic (" / ");Int_to_PC_Basic(divisor);
+dividend = Real_Num_from_PC(digits, &divisor, &decimal_places);     //Step 1
+Serial.write ('\t');Int_Num_to_PC_A(dividend, num_string, ' ');
+Serial.write (" / ");Int_Num_to_PC_A(divisor, num_string, ' ');
 
-int_result = int_divide (dividend, divisor, &twos_expt);                    //Steps 2 to 4
+int_result = int_divide_Local (dividend, divisor, &twos_expt);                    //Steps 2 to 4
 
-Char_to_PC_Basic ('\t');
-Int_to_PC_Basic(int_result);
-String_to_PC_Basic (" x 2 exp ");
-Hex_and_Int_to_PC_Basic(10, twos_expt);
+Serial.write ('\t');
+Int_Num_to_PC_A(int_result, num_string, ' ');
+Serial.write (" x 2 exp ");
+Int_Num_to_PC_A(twos_expt, num_string, ' ');
 
-fpn_result = assemble_fpn (int_result,twos_expt);                           //Step 5
+fpn_result = assemble_fpn_Local (int_result,twos_expt);                           //Step 5
 
-Char_to_PC_Basic ('\t');
+Serial.write ('\t');
 print_fpn_as_binary(fpn_result, '\t');
 
 
@@ -74,9 +77,11 @@ SW_reset;}
 //and void real_divide(long A, long B, long *Div, long *mod)  {}
 //here
 
+  
 
 
-float assemble_fpn (long int_result,int twos_expt){
+
+float assemble_fpn_Local (long int_result,int twos_expt){
 float fpn;
 
 twos_expt += 24;                                                        //Shift binary point from right hand end to left hand end
