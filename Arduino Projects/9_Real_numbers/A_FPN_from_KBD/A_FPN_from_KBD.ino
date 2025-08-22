@@ -73,8 +73,8 @@ SW_reset;}
 
 /***************************************************************************************************************************/
 
-//Type subroutines long int_divide(long A, long B, int * binary_pt_counter){}
-//and void real_divide(long A, long B, long *Div, long *mod)  {}
+//Type subroutines long int_divide_Local(long A, long B, int * binary_pt_counter){}
+//and void real_divide_Local(long A, long B, long *Div, long *mod)  {}
 //here
 
   
