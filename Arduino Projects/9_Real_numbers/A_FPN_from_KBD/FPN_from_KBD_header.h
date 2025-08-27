@@ -161,10 +161,10 @@ if((User_response == 'R') || (User_response == 'r'))break;} Serial.write("\r\n")
 /*****************************************************************************/
 #include "Resources_nano_projects/Subroutines/HW_timers.c"
 #include "Resources_nano_projects/PC_comms/Basic_Rx_Tx_Arduino.c"
-#include "Resources_nano_projects/PC_comms/Arduino_Rx_Tx_UNO_pcb.c"
+#include "Resources_nano_projects/PC_comms/Arduino_Rx_Tx_Extra.c"
 #include "Resources_nano_projects/Chip2chip_comms/I2C_subroutines_1.c"
 #include "Resources_nano_projects/Chip2chip_comms/I2C_slave_Rx_Tx.c"
-#include "Resources_nano_projects/Subroutines/Real_num_resources.c"
+#include "Resources_nano_projects/PC_comms/Real_num_resources.c"
 
 #include "Resources_nano_projects/Subroutines/Random_and_prime_nos.c"
 
