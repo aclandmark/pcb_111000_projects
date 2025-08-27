@@ -163,7 +163,7 @@ if((User_response == 'R') || (User_response == 'r'))break;} Serial.write("\r\n")
 #include "Resources_nano_projects/Chip2chip_comms/I2C_slave_Rx_Tx.c"
 #include "Resources_nano_projects/Subroutines/Random_and_prime_nos.c"
 
-#include "Resources_nano_projects/Subroutines/Real_num_resources.c"
+#include "Resources_nano_projects/PC_comms/Real_num_resources.c"
 
 
 
