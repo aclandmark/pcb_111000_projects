@@ -1,5 +1,3 @@
-
-
 long int_divide_Local(long A, long B, int * binary_pt_counter)    
   {
     long Div, mod;
