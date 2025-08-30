@@ -1,4 +1,4 @@
-
+void real_divide(long, long, long *, long *) ;
 
 void Real_num_to_PC_no_rounding(long int_num, int twos_expt, char decimal_places, char * num_string){
 long  divisor;
