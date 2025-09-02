@@ -1,4 +1,7 @@
+
+
 void real_divide(long, long, long *, long *) ;
+
 
 void Real_num_to_PC_no_rounding(long int_num, int twos_expt, char decimal_places, char * num_string){
 long  divisor;
@@ -24,11 +27,6 @@ Serial.write('\t');
  Serial.write(Div + '0'); }}
 
 else {while(twos_expt) {int_num *= 2; twos_expt -= 1;}Int_Num_to_PC_A(int_num, num_string, ' ');}}
-
-
-
-
-
 
 
 /********************************************************************************************************************************************/
