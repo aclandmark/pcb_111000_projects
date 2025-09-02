@@ -6,9 +6,10 @@
 long int_divide(long, long, int *);
 void real_divide(long, long, long *, long *);
 long unpack_FPN(float, int *, char *);
+
+
+
 /********************************************************************************************************************************************/
-
-
 void Real_num_to_string_with_rounding_Local(char * num_string, long int_num, int twos_expt, char decimal_places, char * string_offset){
 long  divisor;
 long Div, mod;
@@ -17,13 +18,11 @@ char leading_zeros = 0;
 char digit_counter;
 long Integer_Result;
 
-
  divisor = 1;
  twos_expt = twos_expt * (-1);                                                  // We divide not multiply by 2^twos_expt
 
  while (twos_expt >= 31){twos_expt -= 1; int_num = int_num >> 1;}               //Long numbers only have room for 32 bits
  for (int m = 0; m < twos_expt; m++) divisor *= 2;                              //Convert 2^twos_expt to a number (i.e. 2^3 to 8) such as 2, 4, 8, 16....
-
 
 
 //*****************************Obtain integer result and remainder then caculate decimal places*******************************************
@@ -52,31 +51,36 @@ while(num_string[*string_offset])*string_offset += 1;                           
 
 
 
-
+/****************************************************************************************************************************************/
 long unpack_FPN(float FPN, int *twos_expnt, char * sign)
 {long FPN_digits;
 int shift;
 
-FPN_digits = (*(long*)&FPN);                          //Read the FPN using a long pointer
+FPN_digits = (*(long*)&FPN);                                      //Read the FPN using a long pointer
 if( FPN_digits & (((unsigned long)0x80000000)))
-{ FPN_digits = FPN_digits & (~((unsigned long)0x80000000));           //If negative remove sign bit
+{ FPN_digits = FPN_digits & (~((unsigned long)0x80000000));        //If negative remove sign bit
 *sign = '-';}else *sign = '+';
 
-*twos_expnt = (FPN_digits >> 23) - 127;                     //Expponent occupies bits 0 to 7
+*twos_expnt = (FPN_digits >> 23) - 127;                           //Expponent occupies bits 0 to 7
 
 if(*twos_expnt >=-126){       
-FPN_digits = (FPN_digits & 0x7FFFFF);                     //Isolate bits zero to 22
-FPN_digits |= ((unsigned long)0x80000000 >> 8);                 //Add the unsaved 1 to bit 23
+FPN_digits = (FPN_digits & 0x7FFFFF);                             //Isolate bits zero to 22
+FPN_digits |= ((unsigned long)0x80000000 >> 8);                   //Add the unsaved 1 to bit 23
 *twos_expnt += 1;
-FPN_digits = FPN_digits << 7;                         //Shift left 7 places until bit 30 is a 1
+FPN_digits = FPN_digits << 7;                                     //Shift left 7 places until bit 30 is a 1
 return FPN_digits;}
 
-if(*twos_expnt == -127){                            //Bit 23 will not be set to 1, 2's exponent is unknown
-if(!(FPN_digits))return 0;                            //If exponent is -127 shift is 9 MSB is bit 21
-else                                      //If exponent is -128 shift is 10 MSB is bit 20
+if(*twos_expnt == -127){                                          //Bit 23 will not be set to 1, 2's exponent is unknown
+if(!(FPN_digits))return 0;                                        //If exponent is -127 shift is 9 MSB is bit 21
+else                                                              //If exponent is -128 shift is 10 MSB is bit 20
 {shift = 0;
 while (!(FPN_digits & 0x40000000)){FPN_digits <<= 1; shift += 1;}
 *twos_expnt = -(118 + shift);
 return FPN_digits;}}}
+
+
+
+
+
 
 /*****************************************************************************************************************************************************************/
