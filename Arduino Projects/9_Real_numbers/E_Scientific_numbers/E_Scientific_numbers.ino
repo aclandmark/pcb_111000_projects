@@ -18,10 +18,10 @@ Then press AK to generate a series of numbers.\t"
 #include "Scientific_numbers_header.h"
 #include "SC_Num_to_string.c"
 
-
 void real_divide(long, long, long *, long *) ;
 
 char digits[8];
+
 
 
 int main (void)  
@@ -68,7 +68,7 @@ switch(waitforkeypress_A()){
 
 
 
-/*****************************************************************************************/
+/******************************************************************************************************************/
 void Print_and_display_FPN_Local(float num, char pre_dp, char post_dp, char next_char, char mode)
 {long A = 1;
 char sign = '+';
@@ -95,31 +95,18 @@ Display_FPN(num, FP_location, post_dp, sign, Exp, mode);}
 
 
 
+/******************************************************************************************************************/
 void Display_FPN(float num, char pre_dp, char post_dp, char sign, int Exp, char mode){
 int twos_expnt;
 long FPN_digits;
 char num_string[12];
-//long Test;
 char string_offset;
-//char digits[8];
-
 
 FPN_digits = unpack_FPN(num, &twos_expnt, &sign);  twos_expnt -= 31;
 Int_Num_to_PC_A(FPN_digits, num_string, ' ');Int_Num_to_PC_A(twos_expnt, num_string, ' ');Serial.write('\t');
 Real_num_to_string_with_rounding_Local(num_string, FPN_digits, twos_expnt, post_dp, &string_offset);
-
-//for(int m = 0; m < (string_offset - post_dp); m++)                     //Print out the digits to the left of the decimal point
-//Serial.write (num_string[m]);
-//Serial.write('.');
-
-//for(int m = (string_offset - post_dp); m < string_offset; m++) 
-//Serial.write (num_string[m]); 
-
-//newline_A();
 Format_num_string(num_string, digits, pre_dp, Exp, mode );
-I2C_Tx_8_byte_array(digits);
-
-}
+I2C_Tx_8_byte_array(digits);}
 
 
 
@@ -136,24 +123,7 @@ return atof(num_as_string);}                                           //"askii 
 
 
 /******************************************************************************************/
-
-void Format_num_string(char* num_string, char * digits, char pre_dp, int Exp, char mode ){
-
-for(int m = 0; m <=7; m++)digits[m] = num_string[7-m];
-
-  for (int m = 0; m < (7-pre_dp); m++) digits[m] = digits[m + 1];
-  digits[7 - pre_dp] = '.'; 
-
-if((mode == '0') || (mode == 'y')){
-if (Exp > 0){
-if (Exp < 10) {digits [1] = 'E'; digits[0] = Exp + '0';}
-if (Exp >=10) {digits [2] = 'E'; digits[0] = (Exp%10) + '0'; digits[1]= (Exp/10) + '0';}}
-
-if (Exp < 0){Exp *= (-1);
-if (Exp < 10) {digits [2] = 'E'; digits[1] = '-'; digits[0] = Exp + '0';}
-if (Exp >=10) {digits [3] = 'E'; digits[2] = '-'; digits[0] = (Exp%10) + '0'; digits[1]= (Exp/10) + '0';}}}
-
-}
+//Type subroutine  Format_num_string() here
 
 
 
