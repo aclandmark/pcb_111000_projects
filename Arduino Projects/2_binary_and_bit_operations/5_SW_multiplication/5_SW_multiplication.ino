@@ -19,7 +19,7 @@ For example 2 x 3 is 2 + 2 + 2 = 6
 #include "KBD_to_display.c"
 
 
-//Type main rotine here
+//Type main routine here
 
 
 
