@@ -1,8 +1,7 @@
-
 /*
  Explore the operation of the OR, AND, Exclusive OR and NOT bitwise operations (|, & ^ and ~)
+Demonstrating how these operations can be used to control and implement the microchip building blocks
 */
-
 
 
 
