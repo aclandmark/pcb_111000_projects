@@ -9,7 +9,7 @@ for details see
 https://www.geeksforgeeks.org/maths/binary-division/
 
 Of course the results can also be obtained by repeatedly
-suntracting the divisor from the dividend but the process here
+subtracting the divisor from the dividend but the process here
 is quicker. 
 
  For example 16 /3 is 16 - 3 - 3 - 3 - 3 - 3 
