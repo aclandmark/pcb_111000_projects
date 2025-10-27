@@ -1,6 +1,9 @@
 
 /*
  Explore the operation of the OR, AND, Exclusive OR and NOT bitwise operations (|, & ^ and ~)
+
+These operations are used to interrogate and control the building blocks that go into making up the microchip. 
+They can also be used to implement simple arithmetic functions. 
 */
 
 
