@@ -1,4 +1,11 @@
 
+/*
+ A more efficient implementation of the sieve of Eratosthenes 
+ Takes an array of 200 numbers and sets all non primes to zero
+ */
+
+
+
 #include "Prime_numbers_header.h"
 
 char counter=0;
