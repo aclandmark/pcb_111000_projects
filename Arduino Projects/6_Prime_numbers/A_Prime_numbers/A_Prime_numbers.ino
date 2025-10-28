@@ -1,4 +1,11 @@
 
+/*
+Obtains prime numbers using the sieve of Eratosthenes 
+Eratosthenes was a Greek mathematician and all round academic
+who lived over 2000 years ago 
+ */
+
+
 #include "Prime_numbers_header.h"
 
 
