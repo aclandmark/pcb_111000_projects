@@ -1,4 +1,10 @@
 
+/*
+ Drives the display while calculating and printing out the square root
+ of an integer number entered at the keyboard.
+ Calculates square roots by trial and error starting with 2.
+ */
+ 
 
 #include "Roots_with_interrrupt_header.h"
 #include "Local_subroutines.c"
