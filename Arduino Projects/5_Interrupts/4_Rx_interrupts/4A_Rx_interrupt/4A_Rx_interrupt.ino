@@ -1,4 +1,7 @@
-
+/*
+Responds to key presses by printing out the askii characters
+Multiple keypresses can be made any time 
+ */
 
 volatile int p=0;
 
