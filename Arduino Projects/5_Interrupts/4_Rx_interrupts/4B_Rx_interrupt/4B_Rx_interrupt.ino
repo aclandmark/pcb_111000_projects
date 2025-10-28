@@ -1,4 +1,9 @@
 
+/*
+ A crude attempt to implement a new line function without also
+ resetting the cursor to the start of the line 
+ */
+
 volatile char sym_counter;
 
 #include "4B_Rx_interrupt_header.h"
