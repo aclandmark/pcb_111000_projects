@@ -1,6 +1,6 @@
 
 //Multiple screen printing
-
+//Endlessly prints out the askii characters
 
 
 volatile char sym_counter;
