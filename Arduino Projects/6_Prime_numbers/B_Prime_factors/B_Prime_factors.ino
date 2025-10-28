@@ -1,4 +1,9 @@
 
+/*
+ Calculates the prime factors of a number entered at the keyboard
+ */
+
+
 #include "Prime_factors_header.h"
 
 /************************************************************************************************************/
