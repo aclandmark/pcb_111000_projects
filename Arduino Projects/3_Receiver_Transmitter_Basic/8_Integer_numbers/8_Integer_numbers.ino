@@ -1,8 +1,9 @@
 
 
 
-//Calculates factors of an integer number
 
+//Accepts an integer number at the keyboard and 
+//prints out its factors.
 
 
 /************************************************************************************************************/
