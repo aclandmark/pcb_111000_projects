@@ -1,4 +1,10 @@
 
+/*
+ Uses the faster method of obtaining prime numbers
+ to calculate prime factors
+ */
+
+
 #include "Prime_numbers_header.h"
 
 
