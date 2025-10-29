@@ -1,5 +1,18 @@
 
 /*
+ Sc_Num_from_PC_A_Local(num_string) uses the Arduino library to capture a numeric string entered at the keyboard
+This string can be of the form 45.875E-8
+ It then uses the C library function atof (askii to float) to convert the string to a floating point number
+
+ The number is then displayed with one digit pre decimal point and 6 post decimal point plus a tens exponent
+ The user is then asked to specify the number of digits on either side of the decimal point.
+It is then printed out again and the user presses 1, 2 or 3 at the keyboard to raise the number to the power of 1.25,
+find its reciprocal or square root.
+  */
+
+
+
+/*
 EEPROM usage
 0x1FF, 0x1FE and 0x1FD     OSCCAL
 0x1FC and 0x1FB            PRN generator
