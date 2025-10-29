@@ -24,7 +24,7 @@
 
 //To control the display:
   //Press sw1 to toggle the display ON and OFF
- //Press sw2 to pause or resume the clock
+ //Press sw3 to pause or resume the clock
 
 //To adjust the clock:
   //Pulse sw2 then press sw1 and sw3 to advance the time
