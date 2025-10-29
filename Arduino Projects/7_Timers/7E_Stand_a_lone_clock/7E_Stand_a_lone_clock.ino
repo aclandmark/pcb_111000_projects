@@ -1,4 +1,4 @@
-//Proj_7E_Stand_a_lone_clock. A development of Proj_7D
+//Proj_7E_Stand_alone_clock. A development of Proj_7D
 
 
 //IT INTRODUCES
@@ -32,7 +32,7 @@
 
 //To adjust the clock:
 //To advance it
-//Pulse sw2 then press sw1 for minutes and sw1 for seconds. Pulse sw2 when done.
+//Pulse sw2 then press sw1 for minutes and sw3 for seconds. Pulse sw2 when done.
 
 //To retard it
 //Press and hold sw2 (for >= 500ms)
