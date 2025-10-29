@@ -1,5 +1,10 @@
-//Enter a number from the IO.
-//It scrolls accross the display
+
+
+//In the stand-alone clock the user switches were used to enter the time.
+//Here they are used to enter an integer number.
+//Having been entered the number continuously scrolls across the display
+
+
 //Type in the main routine
 
 #include "String_IO_to_display_header.h"
