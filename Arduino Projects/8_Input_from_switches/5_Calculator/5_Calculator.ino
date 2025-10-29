@@ -1,4 +1,8 @@
 
+/*
+ User switches used to enter scientific numbers
+ Performs +, -, *, /, square, square root and reciprocal
+ */
 
 
 #include "Calculator_header.h"
