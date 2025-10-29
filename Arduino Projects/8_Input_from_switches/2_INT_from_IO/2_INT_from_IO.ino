@@ -1,5 +1,7 @@
 
+
 //**************Acquire_and process_Integer_Data_from_the user switches********************
+//This projects is similar to 1_string_from_IO but it does some arithmetic with the number that we enter
 
 #include "INT_IO_to_display_header.h"
 
