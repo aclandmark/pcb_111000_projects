@@ -2,7 +2,6 @@
 //Proj_7A_Demo_Clock_A
 //****************************************************************************************************************************
 
-
 //IT INTRODUCES
 //
 //Simple clock in which the display is kept up to date by manipulating the string sent to the display every 100 mS.
@@ -12,13 +11,14 @@
 
 
 //USER INSTRUCTIONS
-//the clock start at time zero.
 
-//Respond to the user prompt by pressing "R" and entering the time when requested or by pressing "r" and letting 
+//Respond to the user prompt by pressing "R" and entering the time when requested or by pressing "r" and 
+//letting the clock start at time zero.
 
-//Unfortunately the I2C bus appears to crash after random intervals of anything between say 10 minutes and an hour
-//Proj 7A_1 has therefore been developed which uses the watchdog timer with interrupt to reset both mim-OS and the user project
-//when a crash occurs
+//Unfortunately as the result of ongoing develolpment the I2C bus appears to crash after random intervals 
+//of anything between say 10 minutes and an hour
+//Proj 7A_1 has therefore been developed which uses the watchdog timer with interrupt to reset both mini-OS and the user project
+//when a crash occurs so that the clock continues as normal
 
 
 
