@@ -1,5 +1,5 @@
 
-//Eplores the divide fumction in some detai
+//Eplores the divide function in some detail
 
 
 #include "decimal_fraction_header.h"
