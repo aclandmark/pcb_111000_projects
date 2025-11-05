@@ -83,6 +83,11 @@ void Timer_T2_10mS_delay_x_m(int m)
 
 
 /*********************************************************************/
+void Start_timer_T1_sub(char Counter_speed, unsigned int Start_point){ 
+TIMSK1 |= (1 << TOIE1);
+TCNT1H = (Start_point >> 8);
+TCNT1L = Start_point & 0x00FF;
+TCCR1B = Counter_speed;}
 
 
 
