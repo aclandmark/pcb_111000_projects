@@ -17,7 +17,8 @@ while(1){
   strlength = Long_Hex_and_Int_to_PC_Basic_local(0x10, Num);
 for(int m = strlength; m < (30 - strlength); m++)Char_to_PC_Basic(' ');
 strlength =  Long_Hex_and_Int_to_PC_Basic_local(10, Num);
-for(int m = strlength; m < (30 - strlength); m++)Char_to_PC_Basic(' ');
+//for(int m = strlength; m < (30 - strlength); m++)Char_to_PC_Basic(' ');
+String_to_PC_Basic("\t\t");
   Long_Binary_to_PC_local(Num);    
   String_to_PC_Basic("\r\n");
   
