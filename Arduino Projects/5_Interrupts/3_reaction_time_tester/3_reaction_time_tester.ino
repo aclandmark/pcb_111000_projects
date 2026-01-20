@@ -1,6 +1,6 @@
 
 
-//Very similar to Project 3B.  
+//Very similar to Project 2_Pin_Change_Interrupt.  
 //Press sw2 when the led bars line up to make the display flash
 //But strangely does not include any interrupts
 
