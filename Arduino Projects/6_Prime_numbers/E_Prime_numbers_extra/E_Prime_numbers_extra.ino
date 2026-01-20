@@ -18,6 +18,7 @@ USER INSTRUCTIONS
 
 The numbers are sent to the PC screen.
 Type in any that look non-prime terminating each with a "return" keypress.
+If a non prime is correctly guesed press SW2 before entering another number
 Enter zero to exit and press sw3 when requested.
 
 Switch location SW1(PD2) - SW2(PD7) – SW3(PB2).*/
