@@ -32,6 +32,8 @@
   //then press sw1 and sw3 to retard the time
   //Always pulse sw2 when the time is correct
 
+   //If switch bounce is a problem see similar project under PCB111000_UNO_V2\5_pcb_111000_projects_for_UNO_V2
+
  //Switch location SW1(PD2) - SW2(PD7) – SW3(PB2)
 
 
