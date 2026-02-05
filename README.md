@@ -14,10 +14,9 @@ This repository contains sample projects for PCB111000.  They are designed to il
 	How real numbers and scientific numbers can be reduced to simple forms. 
 
 Projects include
+
 	Random numbers
-	
 	Prime numbers
-	
 	Arithmetic operations
 
 Hardware exploration
