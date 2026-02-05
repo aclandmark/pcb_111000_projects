@@ -1,6 +1,6 @@
 Introducing PCB111000 projects
 	
-This repository contains sample projects for PCB111000.  They are designed to illustrate the following features C.
+This repository contains sample projects for PCB111000.  They are designed to illustrate the following features of C.
 
 	Simple C programs designed to drive a dual led or the display.
 	The operation and uses of the basic logic gates.
