@@ -13,14 +13,12 @@ This repository contains sample projects for PCB111000.  They are designed to il
 	Input from the user switches.
 	How real numbers and scientific numbers can be reduced to simple forms. 
 
-Projects include
-
+Projects include	
 	Random numbers
 	Prime numbers
 	Arithmetic operations
 
-Hardware exploration
-
+Hardware exploration	
       The following building blocks of the microcontroller are introduced:
        The reset system 			watch dog timer
        Memory						Timers
